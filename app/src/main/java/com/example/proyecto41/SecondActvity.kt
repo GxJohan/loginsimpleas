@@ -31,16 +31,8 @@ class SecondActvity : AppCompatActivity() {
         binding.btnLogout.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
 
-
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_second_actvity)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 }
