@@ -1,6 +1,8 @@
 package com.example.proyecto41
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,5 +29,23 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //3. Configuramos el botón para Iniciar Sesión
+        binding.btnLogin.setOnClickListener {
+            val username = binding.etUsername.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+
+            if (username.isEmpty() || password.isEmpty()){
+                Toast.makeText(this, "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
+            }else {
+                //Aqui se entiende que venería la lógica de autenticación
+                //Para este ejemplo, asumiremos que cualquier usuario y contraseña es correcto
+                val intent = Intent(this, SecondActvity::class.java)
+                intent.putExtra("username", username)
+                startActivity(intent)
+            }
+
+        }
+
     }
 }
